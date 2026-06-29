@@ -2,88 +2,55 @@ let total = 0;
 
 function addToCart(foodName, price) {
 
-    function addToCart(food, price){
+    function addToCart(
+
+food,
+
+price,
+
+qty = 1
+
+){
+
+    qty = parseInt(qty);
 
     let cartItems =
-    document.getElementById("cartItems");
+
+    document.getElementById(
+        "cartItems"
+    );
 
     let li =
-    document.createElement("li");
+
+    document.createElement(
+        "li"
+    );
+
+    let itemPrice =
+
+    price * qty;
 
     li.innerHTML =
 
     food +
 
-    " - ₹" +
+    " x " +
 
-    price +
+    qty +
 
-    " <button onclick='removeItem(this," +
+    " = ₹" +
 
-    price +
-
-    ")'>❌</button>";
+    itemPrice;
 
     cartItems.appendChild(li);
 
-    total += price;
+    total += itemPrice;
 
-    document.getElementById("total")
-    .innerText = total;
+    document.getElementById(
+        "total"
+    ).innerText = total;
 
 }
-}
-function placeOrder(){
-
-    let name =
-    document.getElementById("name").value;
-
-    let phone =
-    document.getElementById("phone").value;
-
-    let address =
-    document.getElementById("address").value;
-
-    let city =
-    document.getElementById("city").value;
-
-    let pincode =
-    document.getElementById("pincode").value;
-
-    let payment =
-    document.querySelector(
-        'input[name="payment"]:checked'
-    );
-
-    if(
-        name === "" ||
-        phone === "" ||
-        address === "" ||
-        city === "" ||
-        pincode === ""
-    ){
-
-        alert("Please fill all details!");
-        return;
-    }
-
-    if(payment === null){
-
-        alert("Please select a payment method!");
-        return;
-    }
-
-    alert(
-        "✅ Order Placed Successfully!\n\n" +
-        "Name: " + name +
-        "\nPhone: " + phone +
-        "\nAddress: " + address +
-        "\nCity: " + city +
-        "\nPincode: " + pincode +
-        "\nPayment: " + payment.value +
-        "\nTotal Amount: ₹" + total
-    );
-
 }
 function searchFood(){
 
@@ -168,5 +135,92 @@ function removeItem(button, price){
 
     document.getElementById("total")
     .innerText = total;
+
+}
+window.onload = function(){
+
+    alert(
+        "🎉 Welcome to Foodie Hub!\n\nGet 20% OFF on your first order!"
+    );
+
+}
+alert(
+
+"✅ Order Placed Successfully!\n\n" +
+
+"Order ID: #" + orderId +
+
+"\nEstimated Delivery: 30 Minutes" +
+
+"\n\nThank You For Ordering!"
+
+);
+function saveOrder(order){
+
+    let orders =
+
+    JSON.parse(
+        localStorage.getItem("orders")
+    ) || [];
+
+    orders.push(order);
+
+    localStorage.setItem(
+        "orders",
+        JSON.stringify(orders)
+    );
+
+}
+let orderText =
+
+"Order #" +
+
+orderId +
+
+" - ₹" +
+
+total;
+
+saveOrder(orderText);
+window.onload = function(){
+
+    alert(
+        "🎉 Welcome to Foodie Hub!\nGet 20% OFF!"
+    );
+
+    let orders =
+
+    JSON.parse(
+        localStorage.getItem("orders")
+    ) || [];
+
+    let historyList =
+
+    document.getElementById(
+        "historyList"
+    );
+
+    orders.forEach(function(order){
+
+        let li =
+
+        document.createElement("li");
+
+        li.innerText = order;
+
+        historyList.appendChild(li);
+
+    });
+
+}
+function favoriteFood(food){
+
+    alert(
+
+        food +
+
+        " added to favorites ❤️"
+
+    );
 
 }
