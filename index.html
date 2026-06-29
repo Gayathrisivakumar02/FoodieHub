@@ -15,6 +15,7 @@
         body{
             background:#f5f5f5;
         }
+       
 
         header{
             background:orange;
@@ -110,11 +111,34 @@
 </head>
 
 <body>
+    <nav>
+
+    <h2>🍔 Foodie Hub</h2>
+
+    <ul>
+
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Menu</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+
+    </ul>
+
+</nav>
 
 <header>
     <h1>🍔 Foodie Hub</h1>
     <p>Order Your Favourite Food</p>
 </header>
+<section class="hero">
+
+    <h1>🍕 Delicious Food Delivered To Your Door</h1>
+
+    <p>Get 20% OFF On Your First Order</p>
+
+    <button>Order Now</button>
+
+</section>
 <div class="search-box">
 
     <input
@@ -122,6 +146,24 @@
         id="searchInput"
         placeholder="Search Food..."
         onkeyup="searchFood()">
+
+</div>
+<div class="search-box">
+
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Search Food..."
+        onkeyup="searchFood()">
+
+</div>
+<div class="categories">
+
+    <button>Biryani</button>
+    <button>Pizza</button>
+    <button>Indian</button>
+    <button>Desserts</button>
+    <button>Drinks</button>
 
 </div>
 
@@ -189,6 +231,27 @@
         <p>₹100</p>
         <button onclick="addToCart('Ice Cream',100)">Add to Cart</button>
     </div>
+    <div class="card">
+
+    <img src="images/biryani.jpg">
+
+    <span class="offer">
+        20% OFF
+    </span>
+
+    <h2>Biryani</h2>
+
+    <p class="rating">
+        ⭐⭐⭐⭐⭐ (4.9)
+    </p>
+
+    <p>₹250</p>
+
+    <button onclick="addToCart('Biryani',250)">
+        Add to Cart
+    </button>
+
+</div>
 
 </div>
 

@@ -71,3 +71,37 @@ function placeOrder(){
     );
 
 }
+function searchFood(){
+
+    let input =
+    document.getElementById("searchInput")
+    .value.toLowerCase();
+
+    let foods =
+    document.getElementsByClassName("card");
+
+    for(let i=0;i<foods.length;i++){
+
+        let name =
+        foods[i]
+        .getElementsByTagName("h2")[0]
+        .innerText
+        .toLowerCase();
+
+        if(name.includes(input)){
+
+            foods[i].style.display =
+            "block";
+
+        }
+
+        else{
+
+            foods[i].style.display =
+            "none";
+
+        }
+
+    }
+
+}
