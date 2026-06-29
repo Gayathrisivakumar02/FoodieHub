@@ -2,22 +2,36 @@ let total = 0;
 
 function addToCart(foodName, price) {
 
+    function addToCart(food, price){
+
     let cartItems =
-        document.getElementById("cart-items");
+    document.getElementById("cartItems");
 
     let li =
-        document.createElement("li");
+    document.createElement("li");
 
     li.innerHTML =
-        foodName + " - ₹" + price;
+
+    food +
+
+    " - ₹" +
+
+    price +
+
+    " <button onclick='removeItem(this," +
+
+    price +
+
+    ")'>❌</button>";
 
     cartItems.appendChild(li);
 
-    total = total + price;
+    total += price;
 
     document.getElementById("total")
-        .innerHTML = total;
+    .innerText = total;
 
+}
 }
 function placeOrder(){
 
@@ -103,5 +117,56 @@ function searchFood(){
         }
 
     }
+
+    function clearCart(){
+
+    document.getElementById("cartItems")
+    .innerHTML = "";
+
+    total = 0;
+
+    document.getElementById("total")
+    .innerText = total;
+
+}
+}
+function applyCoupon(){
+
+    let code =
+    document.getElementById("coupon")
+    .value;
+
+    if(code === "FOOD50"){
+
+        total = total - 50;
+
+        if(total < 0){
+
+            total = 0;
+
+        }
+
+        document.getElementById("total")
+        .innerText = total;
+
+        alert("₹50 Discount Applied!");
+
+    }
+
+    else{
+
+        alert("Invalid Coupon Code!");
+
+    }
+
+}
+function removeItem(button, price){
+
+    button.parentElement.remove();
+
+    total -= price;
+
+    document.getElementById("total")
+    .innerText = total;
 
 }
