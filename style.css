@@ -74,3 +74,12 @@ button:hover {
     background: red;
 
 }
+#checkoutSection input,
+#checkoutSection textarea{
+
+    width:100%;
+    padding:10px;
+    border:1px solid gray;
+    border-radius:5px;
+
+}
