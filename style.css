@@ -83,3 +83,21 @@ button:hover {
     border-radius:5px;
 
 }
+footer{
+    background:black;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:20px;
+}
+.search-box{
+    text-align:center;
+    margin:20px;
+}
+
+.search-box input{
+    width:300px;
+    padding:10px;
+    border-radius:10px;
+    border:1px solid gray;
+}

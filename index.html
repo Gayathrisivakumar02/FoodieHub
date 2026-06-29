@@ -22,6 +22,7 @@
             text-align:center;
             padding:20px;
         }
+        
 
         .container{
             display:grid;
@@ -114,6 +115,15 @@
     <h1>🍔 Foodie Hub</h1>
     <p>Order Your Favourite Food</p>
 </header>
+<div class="search-box">
+
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Search Food..."
+        onkeyup="searchFood()">
+
+</div>
 
 <div class="container">
 
@@ -349,6 +359,9 @@ function placeOrder(){
 }
 
 </script>
+<footer>
+    <p>© 2026 Foodie Hub | Made by Gayathri</p>
+</footer>
 
 </body>
 </html>
